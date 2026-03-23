@@ -1,0 +1,7 @@
+{
+  "name": "super-deslop",
+  "description": "Bridge skill composing superpowers planning/execution with desloppify code-health scanning via desloppify-api",
+  "version": "0.1.0",
+  "license": "MIT",
+  "keywords": ["superpowers", "desloppify", "desloppify-api", "code-quality", "bridge"]
+}

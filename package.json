@@ -1,0 +1,19 @@
+{
+  "name": "super-deslop",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Bridge skill composing superpowers and desloppify into one full-agency workflow via desloppify-api",
+  "main": ".opencode/plugins/super-deslop.js",
+  "scripts": {
+    "test": "node --test tests/**/*.test.js"
+  },
+  "keywords": [
+    "superpowers",
+    "desloppify",
+    "desloppify-api",
+    "code-quality",
+    "workflow",
+    "skills"
+  ],
+  "license": "MIT"
+}
