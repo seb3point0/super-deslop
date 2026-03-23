@@ -31,49 +31,24 @@ desloppify (upstream, untouched)
 
 ## Prerequisites
 
-Before installing super-deslop, you need:
+- [Superpowers](https://github.com/obra/superpowers) installed for your platform
+- Python 3.11+ with pip available
 
-1. **Superpowers** installed for your platform ([installation guide](https://github.com/obra/superpowers#installation))
-2. **Desloppify** CLI: `pip install "desloppify[full]"`
-3. **desloppify-api**: `pip install git+https://github.com/seb3point0/desloppify-api.git`
+Python dependencies (`desloppify` and `desloppify-api`) are auto-installed — you don't need to install them manually.
 
 ## Installation
 
-### Claude Code
-
-#### Via Plugin Marketplace (if available)
+### One-Line Install (Claude Code or Codex)
 
 ```bash
-/plugin install super-deslop@seb3point0
+curl -sSL https://raw.githubusercontent.com/seb3point0/super-deslop/main/setup.sh | bash
 ```
 
-#### Manual Install
-
-1. Clone super-deslop next to your superpowers install:
-
-```bash
-git clone https://github.com/seb3point0/super-deslop.git ~/.claude/super-deslop
-```
-
-2. Create a skills symlink so Claude Code discovers the bridge skill:
-
-```bash
-mkdir -p ~/.claude/skills
-ln -s ~/.claude/super-deslop/skills/super-deslop ~/.claude/skills/super-deslop
-```
-
-3. Install the Python dependencies:
-
-```bash
-pip install "desloppify[full]"
-pip install git+https://github.com/seb3point0/desloppify-api.git
-```
-
-4. Restart Claude Code. Verify by asking: "Tell me about the super-deslop skill"
+This auto-detects your platform, clones the repo, creates skill symlinks, and installs all Python dependencies.
 
 ### OpenCode
 
-1. Add super-deslop to the `plugin` array in your `opencode.json` (global or project-level):
+Add to your `opencode.json` (that's it — Python deps auto-install on first plugin load):
 
 ```json
 {
@@ -84,54 +59,38 @@ pip install git+https://github.com/seb3point0/desloppify-api.git
 }
 ```
 
-2. Install the Python dependencies:
+Restart OpenCode. The plugin auto-registers the skill and auto-installs `desloppify` and `desloppify-api` on first load.
+
+### Claude Code (manual)
 
 ```bash
-pip install "desloppify[full]"
-pip install git+https://github.com/seb3point0/desloppify-api.git
+curl -sSL https://raw.githubusercontent.com/seb3point0/super-deslop/main/setup.sh | bash
 ```
 
-3. Restart OpenCode. The plugin auto-registers the bridge skill.
+Or step by step:
 
-4. Verify by asking: "Tell me about the super-deslop skill"
+```bash
+git clone https://github.com/seb3point0/super-deslop.git ~/.claude/super-deslop
+~/.claude/super-deslop/setup.sh
+```
+
+Restart Claude Code.
 
 ### Codex
 
-1. Clone the repo:
-
 ```bash
-git clone https://github.com/seb3point0/super-deslop.git ~/.codex/super-deslop
+curl -sSL https://raw.githubusercontent.com/seb3point0/super-deslop/main/setup.sh | bash
 ```
 
-2. Create a skills symlink so Codex discovers the bridge skill:
-
-```bash
-mkdir -p ~/.agents/skills
-ln -s ~/.codex/super-deslop/skills/super-deslop ~/.agents/skills/super-deslop
-```
-
-3. Install the Python dependencies:
-
-```bash
-pip install "desloppify[full]"
-pip install git+https://github.com/seb3point0/desloppify-api.git
-```
-
-4. Restart Codex.
-
-Or tell Codex directly:
+Or tell Codex:
 
 ```
 Fetch and follow instructions from https://raw.githubusercontent.com/seb3point0/super-deslop/refs/heads/main/.codex/INSTALL.md
 ```
 
-### Quick Install (any platform)
+### Verify
 
-Tell your agent:
-
-```
-Fetch and follow instructions from https://raw.githubusercontent.com/seb3point0/super-deslop/refs/heads/main/INSTALL.md
-```
+Ask your agent: "Tell me about the super-deslop skill"
 
 ## Usage
 
