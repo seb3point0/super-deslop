@@ -1,33 +1,56 @@
 # Installing Super Deslop for Codex
 
-## Prerequisites
+Follow these steps exactly. Do not skip any step.
 
-- Codex CLI installed
-- Superpowers installed (`~/.agents/skills/superpowers/` must exist)
+## Step 1: Clone the super-deslop repo
 
-## Steps
-
-1. Clone the repo:
 ```bash
 git clone https://github.com/seb3point0/super-deslop.git ~/.codex/super-deslop
 ```
 
-2. Create the skills symlink:
+If the directory already exists, pull the latest instead:
+
 ```bash
-mkdir -p ~/.agents/skills
-ln -s ~/.codex/super-deslop/skills/super-deslop ~/.agents/skills/super-deslop
+cd ~/.codex/super-deslop && git pull --ff-only
 ```
 
-3. Install Python dependencies:
+## Step 2: Create skill symlinks
+
 ```bash
-pip install "desloppify[full]"
+mkdir -p ~/.agents/skills
+ln -sfn ~/.codex/super-deslop/skills/super-deslop ~/.agents/skills/super-deslop
+```
+
+## Step 3: Install superpowers (if not already installed)
+
+Check if superpowers is installed:
+
+```bash
+ls ~/.agents/skills/superpowers/SKILL.md 2>/dev/null
+```
+
+If not found, install it:
+
+```bash
+git clone https://github.com/obra/superpowers.git ~/.codex/superpowers
+ln -sfn ~/.codex/superpowers/skills ~/.agents/skills/superpowers
+```
+
+## Step 4: Install Python dependencies
+
+```bash
+pip install --upgrade "desloppify[full]"
 pip install git+https://github.com/seb3point0/desloppify-api.git
 ```
 
-4. Restart Codex.
+If `pip` is not found, try `pip3` instead.
 
-## Verify
+## Step 5: Set up desloppify skill overlay for Codex
 
-Ask Codex: "What skills do you have that mention desloppify?"
+```bash
+desloppify update-skill codex
+```
 
-The `super-deslop` skill should appear in the list.
+## Step 6: Tell the user
+
+Tell the user: "Super Deslop is installed. Restart Codex to activate. After restart, the super-deslop skill will be available automatically."

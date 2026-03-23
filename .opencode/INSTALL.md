@@ -1,15 +1,10 @@
 # Installing Super Deslop for OpenCode
 
-## Prerequisites
+Follow these steps exactly. Do not skip any step.
 
-- [OpenCode.ai](https://opencode.ai) installed
-- [Superpowers](https://github.com/obra/superpowers) plugin installed
-- [Desloppify](https://github.com/peteromallet/desloppify) CLI: `pip install "desloppify[full]"`
-- [Desloppify API](https://github.com/seb3point0/desloppify-api): `pip install git+https://github.com/seb3point0/desloppify-api.git`
+## Step 1: Add the plugins to opencode.json
 
-## Installation
-
-Add super-deslop to your `opencode.json`:
+Edit the user's `opencode.json` (global: `~/.config/opencode/opencode.json`, or project-level) to add both `superpowers` and `super-deslop` to the `plugin` array. If the file already has a `plugin` array, append to it. If superpowers is already present, only add super-deslop.
 
 ```json
 {
@@ -20,15 +15,23 @@ Add super-deslop to your `opencode.json`:
 }
 ```
 
-Restart OpenCode. The bridge skill is discovered automatically.
+## Step 2: Install Python dependencies
 
-## Dependency Chain
+Run these commands:
 
-```
-super-deslop (bridge skill + plugin)
-  calls superpowers skills by name
-  references desloppify-api for structured Python access
-    depends on desloppify (upstream, untouched)
+```bash
+pip install --upgrade "desloppify[full]"
+pip install git+https://github.com/seb3point0/desloppify-api.git
 ```
 
-All three upstream repos are preserved independently. Update each separately.
+If `pip` is not found, try `pip3` instead.
+
+## Step 3: Set up desloppify skill overlay for OpenCode
+
+```bash
+desloppify update-skill opencode
+```
+
+## Step 4: Tell the user
+
+Tell the user: "Super Deslop is installed. Restart OpenCode to activate the plugin. After restart, the super-deslop skill will be available automatically."

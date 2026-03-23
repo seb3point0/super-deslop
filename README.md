@@ -34,63 +34,53 @@ desloppify (upstream, untouched)
 - [Superpowers](https://github.com/obra/superpowers) installed for your platform
 - Python 3.11+ with pip available
 
-Python dependencies (`desloppify` and `desloppify-api`) are auto-installed — you don't need to install them manually.
+All other dependencies (desloppify, desloppify-api) are installed automatically — you just paste one line.
 
 ## Installation
 
-### One-Line Install (Claude Code or Codex)
-
-```bash
-curl -sSL https://raw.githubusercontent.com/seb3point0/super-deslop/main/setup.sh | bash
-```
-
-This auto-detects your platform, clones the repo, creates skill symlinks, and installs all Python dependencies.
+Each platform has a single prompt you paste into your agent. The agent reads the install instructions, runs the commands, and sets everything up.
 
 ### OpenCode
 
-Add to your `opencode.json` (that's it — Python deps auto-install on first plugin load):
+Paste this into OpenCode:
 
-```json
-{
-  "plugin": [
-    "superpowers@git+https://github.com/obra/superpowers.git",
-    "super-deslop@git+https://github.com/seb3point0/super-deslop.git"
-  ]
-}
+```
+Fetch and follow instructions from https://raw.githubusercontent.com/seb3point0/super-deslop/main/.opencode/INSTALL.md
 ```
 
-Restart OpenCode. The plugin auto-registers the skill and auto-installs `desloppify` and `desloppify-api` on first load.
+The agent will edit your `opencode.json`, install Python deps, and set up the desloppify overlay. Restart OpenCode when it tells you to.
 
-### Claude Code (manual)
+### Claude Code
 
-```bash
-curl -sSL https://raw.githubusercontent.com/seb3point0/super-deslop/main/setup.sh | bash
+Paste this into Claude Code:
+
+```
+Fetch and follow instructions from https://raw.githubusercontent.com/seb3point0/super-deslop/main/.claude/INSTALL.md
 ```
 
-Or step by step:
-
-```bash
-git clone https://github.com/seb3point0/super-deslop.git ~/.claude/super-deslop
-~/.claude/super-deslop/setup.sh
-```
-
-Restart Claude Code.
+The agent will clone the repo, create skill symlinks, install Python deps, and set up the desloppify overlay. Restart Claude Code when it tells you to.
 
 ### Codex
 
+Paste this into Codex:
+
+```
+Fetch and follow instructions from https://raw.githubusercontent.com/seb3point0/super-deslop/main/.codex/INSTALL.md
+```
+
+The agent will clone the repo, create skill symlinks, install Python deps, and set up the desloppify overlay. Restart Codex when it tells you to.
+
+### Manual / Shell Install
+
+If you prefer to run it yourself instead of having the agent do it:
+
 ```bash
 curl -sSL https://raw.githubusercontent.com/seb3point0/super-deslop/main/setup.sh | bash
-```
-
-Or tell Codex:
-
-```
-Fetch and follow instructions from https://raw.githubusercontent.com/seb3point0/super-deslop/refs/heads/main/.codex/INSTALL.md
 ```
 
 ### Verify
 
-Ask your agent: "Tell me about the super-deslop skill"
+After restart, ask your agent: "Tell me about the super-deslop skill"
 
 ## Usage
 

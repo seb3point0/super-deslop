@@ -1,47 +1,23 @@
 # Installing Super Deslop
 
-## Step 1: Install Python dependencies
+You are an AI agent installing super-deslop. Detect which platform you are running on and follow the appropriate section below.
 
-```bash
-pip install "desloppify[full]"
-pip install git+https://github.com/seb3point0/desloppify-api.git
-```
+## Detect Platform
 
-## Step 2: Install Superpowers (if not already installed)
+Check these environment variables and paths to determine your platform:
 
-Follow the instructions for your platform: https://github.com/obra/superpowers#installation
+- If `$CLAUDECODE` is set or `~/.claude/` exists → **Claude Code**
+- If `$CODEX_SANDBOX` is set or `~/.codex/` exists → **Codex**
+- If you are OpenCode (check your system prompt or tools) → **OpenCode**
 
-## Step 3: Install Super Deslop
+## Claude Code
 
-### Claude Code
+Follow instructions at: https://raw.githubusercontent.com/seb3point0/super-deslop/main/.claude/INSTALL.md
 
-```bash
-git clone https://github.com/seb3point0/super-deslop.git ~/.claude/super-deslop
-mkdir -p ~/.claude/skills
-ln -s ~/.claude/super-deslop/skills/super-deslop ~/.claude/skills/super-deslop
-```
+## OpenCode
 
-### OpenCode
+Follow instructions at: https://raw.githubusercontent.com/seb3point0/super-deslop/main/.opencode/INSTALL.md
 
-Add to your `opencode.json`:
+## Codex
 
-```json
-{
-  "plugin": [
-    "superpowers@git+https://github.com/obra/superpowers.git",
-    "super-deslop@git+https://github.com/seb3point0/super-deslop.git"
-  ]
-}
-```
-
-### Codex
-
-```bash
-git clone https://github.com/seb3point0/super-deslop.git ~/.codex/super-deslop
-mkdir -p ~/.agents/skills
-ln -s ~/.codex/super-deslop/skills/super-deslop ~/.agents/skills/super-deslop
-```
-
-## Step 4: Restart your agent and verify
-
-Ask: "Tell me about the super-deslop skill"
+Follow instructions at: https://raw.githubusercontent.com/seb3point0/super-deslop/main/.codex/INSTALL.md
