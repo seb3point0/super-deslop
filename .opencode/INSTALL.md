@@ -5,7 +5,7 @@
 - [OpenCode.ai](https://opencode.ai) installed
 - [Superpowers](https://github.com/obra/superpowers) plugin installed
 - [Desloppify](https://github.com/peteromallet/desloppify) CLI: `pip install "desloppify[full]"`
-- [Desloppify API](https://github.com/<owner>/desloppify-api): `pip install desloppify-api`
+- [Desloppify API](https://github.com/seb3point0/desloppify-api): `pip install git+https://github.com/seb3point0/desloppify-api.git`
 
 ## Installation
 
@@ -15,7 +15,7 @@ Add super-deslop to your `opencode.json`:
 {
   "plugin": [
     "superpowers@git+https://github.com/obra/superpowers.git",
-    "super-deslop@git+https://github.com/<owner>/super-deslop.git"
+    "super-deslop@git+https://github.com/seb3point0/super-deslop.git"
   ]
 }
 ```
