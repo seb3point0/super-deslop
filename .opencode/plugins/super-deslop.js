@@ -93,6 +93,7 @@ export const SuperDeslopPlugin = async ({ client, directory }) => {
     'experimental.chat.system.transform': async (_input, output) => {
       let bootstrap = buildBootstrapContent(
         path.join(configDir, 'skills/super-deslop'),
+        bridgeSkillsDir,
       );
       if (!allInstalled) {
         const missing = depResults
